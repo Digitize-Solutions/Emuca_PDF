@@ -1,0 +1,310 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Oakmaster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap" rel="stylesheet"   >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif;
+        }
+        .hor-row{
+            width: 100%;
+            text-align: center;
+            float: left;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .container-main{
+            width: 100%;
+            float: none;
+            margin: auto;
+            max-width: 1000px;
+            padding: 20px 20px 60px;
+        }
+        .header-container{
+            grid-template-columns: 370px auto;
+            display: grid;
+        }
+        .logo-container img{
+            width: 260px;
+            float: left;
+            margin: -10px 0 0 20px;
+        }
+        .company-address-container{
+            font-size: 12px;
+            text-align: left;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+        h2{
+            text-align: right!important;
+            font-size: 30px!important;
+            margin-top: 55px!important;
+    
+        }
+        .content-main{
+            display: grid;
+            grid-template-columns: auto 380px;
+            grid-gap: 0px;
+            margin: 30px 0 0;
+        }
+        .right-side-content{
+            padding-left: 20px;
+        }
+        .image-container img{
+            width: 100%;
+            margin: 0px 0 0;
+        }
+        .value-container{
+            font-size: 12px;
+            text-align: left;
+            margin: 2px 0;
+            font-weight: 550;
+        }
+        .total-value-container{
+            margin: 50px 0 0;
+            text-align: right;
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 30px;
+    
+        }
+        .total-label{
+            margin-right: 5px;
+            font-size: 14px;
+            text-align: right;
+            width: 80px;
+            float: left;
+            display: inline-block;
+            width: calc(100% - 145px);
+        }
+        .total-value{
+            width: 140px;
+            display: inline-block;
+            text-align: right;
+            float: left;
+        }
+        .price-note-text{
+            text-align: right;
+            font-size: 13px;
+        }
+        .talk-to-us-content{
+            text-align: left;
+            padding-left: 20px;
+            margin-top: 30px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .footer-content-container{
+            margin: 10px 0 0;
+            font-weight: bold;
+        }
+        .place-order-content-main{
+            font-size: 12px;
+            padding-left: 20px;
+        }
+        .order-content-row{
+            text-align: left;
+            margin: 5px 0;
+        }
+        .footer-content-container .info-content-main{
+            font-size: 10px;
+            text-align: left;
+            color: #000000;
+            font-weight: 444;
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+    
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  </head>
+  
+<body class="hor-row">
+    <div class="hor-row container-main">
+        <div class="hor-row header-container">
+            <div class="hor-row logo-container">
+                <img src="{{ oakmasterLogo }}" alt = 'logo' />
+            </div>
+            <h2 class="hor-row">Quotation Summary </h2>
+        </div>
+        <div class="hor-row company-address-container">
+            Oakmasters Ltd, Little Burchetts Farm, Isaac's Lane, 
+             <br/> Haywards Heath, West Sussex, RH16 4RZ.
+             <br/> +44 (0)1444 44 00 11
+             <br/>www.oak-beams.com
+        </div>
+        
+        <div class="hor-row">
+            <div class="hor-row content-main">
+                <div class="right-side-content">
+                    <div class="hor-row value-container">
+                        TRUSS TYPE: {{data["Truss Type"]}}
+                    </div>
+                    {% if data["Roof Pitch Angle"] %}
+                        <div class="hor-row value-container">
+                            ROOF PITCH ANGLE: {{data["Roof Pitch Angle"]}}-Deg
+                        </div>
+                    {% endif %}
+                    {% if data["Tie Beam Span (mm)"] %}
+                        <div class="hor-row value-container">
+                            TIE BEAM SPAN (mm): {{data["Tie Beam Span (mm)"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["Tie Beam Height (mm)"] %}
+                        <div class="hor-row value-container">
+                            TIE BEAM HEIGHT (mm): {{data["Tie Beam Height (mm)"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["Tie Beam Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            TIE BEAM WIDTH (mm): {{data["Tie Beam Width (mm)"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["Wall Depth (mm, in addition to span)"] %}
+                        <div class="hor-row value-container">
+                            WALL DEPTH (mm. IN ADDITION TO SPAN): {{data["Wall Depth (mm, in addition to span)"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["Braces"] %}
+                        <div class="hor-row value-container">
+                            BRACES: YES
+                        </div>
+                    {% endif %}
+
+                    {% if data["Brace Offset"] %}
+                        <div class="hor-row value-container">
+                            BRACE OFFSET: {{data["Brace Offset"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["Brace Curve"] %}
+                        <div class="hor-row value-container">
+                            BRACE CURVE: {{data["Brace Curve"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["Brace Height (mm)"] %}
+                        <div class="hor-row value-container">
+                            BRACE HEIGHT (mm): {{data["Brace Height (mm)"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["Brace Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            BRACE WIDTH (mm): {{data["Brace Width (mm)"]}}
+                        </div>
+                    {% endif %}
+
+
+                    {% if data["Collar"] %}
+                        <div class="hor-row value-container">
+                            COLLAR: YES
+                        </div>
+                    {% endif %}
+                    {% if data["Collar"] %}
+                        <div class="hor-row value-container">
+                            COLLAR HEIGHT (mm): {{data["Collar Height (mm)"]}}
+                        </div>
+                        <div class="hor-row value-container">
+                            COLLAR WIDTH (mm): {{data["Collar Width (mm)"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["King Post Depth (mm)"] %}
+                        <div class="hor-row value-container">
+                            KING POST DEPTH (mm): {{data["King Post Depth (mm)"]}}
+                        </div>
+                    {% endif %}
+                    {% if data["King Post Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            KING POST WIDTH (mm): {{data["King Post Width (mm)"]}}
+                        </div>
+                    {% endif %}
+
+                    {% if data["Rafter Height (mm)"] %}
+                        <div class="hor-row value-container">
+                            RAFTER HEIGHT (mm): {{data["Rafter Height (mm)"]}}         
+                        </div>
+                    {% endif %}
+                    {% if data["Rafter Width (mm)"] %}
+                        <div class="hor-row value-container">
+                            RAFTER WIDTH (mm): {{data["Rafter Width (mm)"]}}
+                        </div>
+                    {% endif %}
+                    <div class="hor-row value-container">
+                        TRUSS QUANTITY: {{data["Truss Quantity"]}}
+                    </div>
+                    <div class="hor-row value-container">
+                        WOOD MASS: {{data["woodMass"]}}
+                    </div>
+
+                </div>
+                <div class="image-container">
+                    <img src="{{ sampleImage }}"/>
+                    <div class="hor-row total-value-container">
+                        <div class="hor-row" style="text-align: right;">
+                            <span class="total-label">NET:</span>
+                            <span class="total-value">{{ data.netPrice }}</span>
+                        </div>
+                        <div class="hor-row" style="text-align: right;">
+                            <span class="total-label">VAT:</span>
+                            <span class="total-value">{{ data.vatPrice }}</span>
+                        </div>
+                        <div class="hor-row" style="text-align: right;">
+                            <span class="total-label">GROSS:</span>
+                            <span class="total-value">{{ data.grossPrice }}</span>
+                        </div>
+                    </div>
+                    <div class="hor-row price-note-text">
+                        <i> (Prices do not include shipping rates)</i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hor-row talk-to-us-content">
+                Please call or email if you would like to discuss before placing an order 
+                <br/>
+                Phone: 01444 44 00 11
+                <br/>
+                Email: oak@oak-beams.com
+            </div>
+            <div class="hor-row footer-content-container">
+                <div class="place-order-content-main">
+                    <div class="hor-row order-content-row" style="font-size: 11px; font-weight: 555; margin-bottom: 20px;">
+                        To place an order please sign, date and return this form by email to:      oak@oak-beams.com
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Client Authorising Signature: ……………………………………………………………………………
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Client / Company Name: ……………………………………………………………………………………
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Date: …………………………………………………………………………………………………………………
+                    </div>
+                    <div class="hor-row order-content-row">
+                        Client / Company Address: …………………………………………………………………………………
+                    </div>
+
+                </div>
+                <div class="hor-row info-content-main">
+                    Our quotations are valid for a period of three months from the date of issue.
+                    <br/>All business is transacted on the terms and conditions of Oakmasters  Ltd trading as Oakmasters, a copy of which will be provided on request.
+                    <br/>Registered office: Oakmasters Ltd, The Lodge,  Greentree Lane, Partridge Green, West Sussex, RH138EU.
+                    <br/>Registration number: 03892478
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

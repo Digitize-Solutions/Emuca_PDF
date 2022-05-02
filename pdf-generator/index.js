@@ -30,9 +30,13 @@ const generatePdf = (filename, data) => {
       const tpl = engine.parse(template);
       const htmlContent = await engine.render(tpl, preppedData);
 
+      // const browser = await puppeteer.launch({
+      //   args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      // });
       const browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      });
+        headless: true,
+        args: ['--no-sandbox','--disable-setuid-sandbox']
+      })
       const page = await browser.newPage();
       await page.setUserAgent(userAgent.toString());
       await page.setContent(htmlContent, { waitUntil: 'networkidle0' });

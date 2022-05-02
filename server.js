@@ -43,7 +43,7 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded());
 
-app.get("/api/health", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).send({ message: "server healthy!" });
 });
 

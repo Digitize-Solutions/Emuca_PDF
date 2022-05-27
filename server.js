@@ -22,9 +22,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // const PORT = process.env.PORT || 80;
 const PORT = process.env.PORT || 3001;
 const POSTMARK_TOKEN = process.env.POSTMARK_TOKEN;
-const TEMPLATE_ID = 27047117;
-const SENDER_EMAIL = 'oak@oak-beams.com';
-const SERVER_TOKEN = "b2c0c3f5-a583-4116-8717-9597ce51adc1";
+const TEMPLATE_ID = 28077805;
+const SENDER_EMAIL = 'emuca@emuca.com';
+const SERVER_TOKEN = "c69c148b-2e0b-4773-87bd-a08727307b17";
 const client = new postmark.ServerClient(SERVER_TOKEN);
 
 
@@ -92,7 +92,7 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
       res.send(response);
       return false;
   }
-  const attachments = req.body.Attachments ;
+  // const attachments = req.body.Attachments ;
 
   client.sendEmailWithTemplate({
       TemplateId:TEMPLATE_ID,
@@ -103,8 +103,8 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
             "first_name": firstName,
             }
       },
-      Attachments: attachments,
-      "Bcc": SENDER_EMAIL,
+      // Attachments: attachments,
+      // "Bcc": SENDER_EMAIL,
   }, function(error, data) {
       if(error) {
           console.error("Unable to send via postmark: " + error.message);

@@ -13,7 +13,7 @@
     "axios": "^0.21.1",
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
-    "dotenv": "^15.0.0",
+    "dotenv": "^16.0.1",
     "express": "^4.17.2",
     "liquidjs": "^9.25.1",
     "morgan": "^1.10.0",

@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import postmark from 'postmark';
 import morgan from 'morgan';
+import dotenv from "dotenv";
 
 //const express = require("express");
 //const cors = require("cors");
@@ -13,7 +14,7 @@ import morgan from 'morgan';
 //const postmark =require("postmark");
 //require("dotenv").config();
 //const generatePdf=require(// from './pdf-generator/index.js';
-
+dotenv.config();
 const app = express();
 // create application/json parser
 var jsonParser = bodyParser.json({ limit: "50mb" });
@@ -21,12 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // const PORT = process.env.PORT || 80;
 const PORT = process.env.PORT || 3001;
-const POSTMARK_TOKEN = process.env.POSTMARK_TOKEN;
-const TEMPLATE_ID = 28077805;
 const SENDER_EMAIL = 'emuca@emuca.com';
-const SERVER_TOKEN = "c69c148b-2e0b-4773-87bd-a08727307b17";
-const client = new postmark.ServerClient(SERVER_TOKEN);
-
+const client = new postmark.ServerClient(process.env.SERVER_TOKEN);
 
 //digitize Code
 app.use(function(req, res, next) {
@@ -60,7 +57,7 @@ app.post("/api/email", async (req, res) => {
     "https://api.postmarkapp.com/email/withTemplate/",
     data,
     {
-      "X-Postmark-Server-Token": POSTMARK_TOKEN,
+      "X-Postmark-Server-Token": process.env.POSTMARK_TOKEN,
     }
   );
   if (response.status !== 200)
@@ -95,7 +92,7 @@ app.post('/sendEmailWithTemplate', jsonParser, (req, res) => {
   // const attachments = req.body.Attachments ;
 
   client.sendEmailWithTemplate({
-      TemplateId:TEMPLATE_ID,
+      TemplateId:process.env.TEMPLATE_ID,
       From: SENDER_EMAIL,
       To: recieverEmail,
       TemplateModel: {

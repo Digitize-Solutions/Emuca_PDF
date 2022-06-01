@@ -1,9 +1,9 @@
 {
-  "name": "project--oakmaster--proxy",
+  "name": "project--emuca--proxy",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:Threekit/project--oakmaster--proxy.git",
-  "author": "Amaan Saeed <asaeed@threekit.com>",
+  "repository": "git@github.com/Digitize-Solutions/Emuca_PDF.git",
+  "author": "Vineet",
   "license": "MIT",
   "type": "module",
   "scripts": {

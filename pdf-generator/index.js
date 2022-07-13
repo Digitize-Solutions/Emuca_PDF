@@ -26,6 +26,7 @@ const generatePdf = (filename, data) => {
       if (!preppedData) {
         preppedData =  TEST_DATA_1
       }
+      preppedData['currentDate'] = new Date()?.toLocaleDateString("en");
 
       const tpl = engine.parse(template);
       const htmlContent = await engine.render(tpl, preppedData);
